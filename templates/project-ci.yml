@@ -1,0 +1,18 @@
+# Copy into a .NET project as .github/workflows/conventions.yml.
+# Fails the PR when a committed convention no longer matches the code (the project-side I7).
+name: conventions
+
+on: pull_request
+
+jobs:
+  conventions-fresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # The kit has no dependencies and needs no .NET SDK: a shallow clone of the marketplace is enough.
+      # For a private marketplace repo, add a token with read access (actions/checkout with repository + token).
+      - run: git clone --depth 1 https://github.com/KOPCSAKPATRIK1/dotnet-market-claude.git /tmp/kit
+      - run: node /tmp/kit/packs/kit-dotnet/tools/kit.mjs stale

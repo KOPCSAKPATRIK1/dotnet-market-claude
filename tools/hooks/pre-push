@@ -1,0 +1,7 @@
+#!/bin/sh
+# Enable once per clone: npm run hooks
+# A red verify can't be pushed.
+node tools/kit.mjs verify || {
+  echo "pre-push: kit verify failed. Run 'npm run sync', fix what remains, then push again."
+  exit 1
+}

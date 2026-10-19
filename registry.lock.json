@@ -1,0 +1,248 @@
+{
+  "plugins": [
+    {
+      "name": "kit-core",
+      "version": "1.0.0",
+      "hash": "2e4ab094a6266b5b"
+    },
+    {
+      "name": "kit-dotnet",
+      "version": "1.0.0",
+      "hash": "6cd09a58b790e3c8"
+    }
+  ],
+  "items": [
+    {
+      "kind": "contract",
+      "pack": "kit-core",
+      "name": "emit-hygiene",
+      "version": "1.0.0",
+      "path": "packs/kit-core/contracts/emit-hygiene.md",
+      "hash": "6e354b9998276b4b"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-core",
+      "name": "lifetime-matched-injection",
+      "version": "1.0.0",
+      "path": "packs/kit-core/contracts/lifetime-matched-injection.md",
+      "hash": "b193c570b33b9966"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-core",
+      "name": "logic-over-surface",
+      "version": "1.0.0",
+      "path": "packs/kit-core/contracts/logic-over-surface.md",
+      "hash": "6de6c74987fa636b"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-core",
+      "name": "openapi-client-consumption",
+      "version": "1.0.0",
+      "path": "packs/kit-core/contracts/openapi-client-consumption.md",
+      "hash": "6ed2c30e85d2cd1c"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-core",
+      "name": "self-descriptive-naming",
+      "version": "1.0.0",
+      "path": "packs/kit-core/contracts/self-descriptive-naming.md",
+      "hash": "e5ce53e04fcff5c1"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "code-review",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/code-review/SKILL.md",
+      "hash": "65483a59f637e5d7"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "codecraft",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/codecraft/SKILL.md",
+      "hash": "a59c7cd3c9d336de"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "contract-author",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/contract-author/SKILL.md",
+      "hash": "b38d582e79ac5b65"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "convention-creator",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/convention-creator/SKILL.md",
+      "hash": "ce90e8ad939bebeb"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "error-classifier",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/error-classifier/SKILL.md",
+      "hash": "8da0344f907ff181"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "repo-sync",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/repo-sync/SKILL.md",
+      "hash": "2b58c2165e8e5dcc"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-core",
+      "name": "setup",
+      "version": "1.0.0",
+      "path": "packs/kit-core/skills/setup/SKILL.md",
+      "hash": "e1227358c5c43562"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "api-spec-fidelity",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/api-spec-fidelity.md",
+      "hash": "f8107f87abfac1ee"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "commit-side-effect-order",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/commit-side-effect-order.md",
+      "hash": "8483669e9ad7c076"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "dotnet-tooling",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/dotnet-tooling.md",
+      "hash": "d9b88f095b4f64c4"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "lost-update",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/lost-update.md",
+      "hash": "6a44cd487a2d81f8"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "migration-history",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/migration-history.md",
+      "hash": "10d0050df4c3d2e2"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "nullability-across-layers",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/nullability-across-layers.md",
+      "hash": "021174d072b15d25"
+    },
+    {
+      "kind": "contract",
+      "pack": "kit-dotnet",
+      "name": "time-kind",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/contracts/time-kind.md",
+      "hash": "777e36bf0b65dbc7"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-dotnet",
+      "name": "scan-examples",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/skills/scan-examples/SKILL.md",
+      "hash": "5366f795d936a298"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-dotnet",
+      "name": "scan-inventory",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/skills/scan-inventory/SKILL.md",
+      "hash": "f1dd5cacf4a6be6f"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-dotnet",
+      "name": "scan-package",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/skills/scan-package/SKILL.md",
+      "hash": "c3a5590965bd61e7"
+    },
+    {
+      "kind": "skill",
+      "pack": "kit-dotnet",
+      "name": "scan-project",
+      "version": "1.0.0",
+      "path": "packs/kit-dotnet/skills/scan-project/SKILL.md",
+      "hash": "d0b322d366a823a8"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "db-scaffold",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/db-scaffold.md",
+      "hash": "c8cd528a29b91fff"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "dotnet-upgrade",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/dotnet-upgrade.md",
+      "hash": "83c10c1d3500be7e"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "ef-migration",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/ef-migration.md",
+      "hash": "023de6eda6dc4b3b"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "integration-test-setup",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/integration-test-setup.md",
+      "hash": "acad4c23e6f2e831"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "openapi-export",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/openapi-export.md",
+      "hash": "a101e3803b92ee03"
+    },
+    {
+      "kind": "command",
+      "pack": "kit-dotnet",
+      "name": "package-add",
+      "version": null,
+      "path": "packs/kit-dotnet/commands/package-add.md",
+      "hash": "56f67c8eea40affd"
+    }
+  ]
+}

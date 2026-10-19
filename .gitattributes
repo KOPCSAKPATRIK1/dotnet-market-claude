@@ -1,0 +1,7 @@
+* text=auto eol=lf
+packs/kit-dotnet/bin/kit text eol=lf
+tools/hooks/* text eol=lf
+
+# Derived by `npm run sync`: regenerate on conflict, never merge by hand.
+registry.lock.json merge=binary linguist-generated=true
+packs/kit-dotnet/contracts/core/** merge=binary linguist-generated=true

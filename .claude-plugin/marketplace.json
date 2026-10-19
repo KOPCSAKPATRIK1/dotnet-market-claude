@@ -1,0 +1,18 @@
+{
+  "name": "dotnet-ai-kit",
+  "owner": { "name": "Kopcsak Patrik" },
+  "description": "Contract + convention kit for .NET projects (ASP.NET Core, EF Core, desktop): only what Claude can't figure out on its own.",
+  "allowCrossMarketplaceDependenciesOn": ["dotnet-agent-skills"],
+  "plugins": [
+    {
+      "name": "kit-core",
+      "source": "./packs/kit-core",
+      "description": "Stack-independent core: the codecraft/code-review loop, contract and convention authoring, error classification."
+    },
+    {
+      "name": "kit-dotnet",
+      "source": "./packs/kit-dotnet",
+      "description": ".NET pack: solution scanners, .NET contracts, runbook commands, Microsoft Learn and NuGet MCP. Installs kit-core and the dotnet, dotnet-data, dotnet-aspnetcore and dotnet-upgrade plugins of the .NET team as dependencies."
+    }
+  ]
+}

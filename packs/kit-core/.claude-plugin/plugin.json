@@ -1,0 +1,9 @@
+{
+  "name": "kit-core",
+  "displayName": "Kit Core",
+  "version": "1.0.0",
+  "description": "Stack-independent core of the AI kit: codecraft and code-review loop, contract-author, convention-creator, error-classifier, setup, repo-sync.",
+  "author": { "name": "Kopcsak Patrik" },
+  "repository": "https://github.com/KOPCSAKPATRIK1/dotnet-market-claude",
+  "keywords": ["conventions", "contracts", "code-review"]
+}

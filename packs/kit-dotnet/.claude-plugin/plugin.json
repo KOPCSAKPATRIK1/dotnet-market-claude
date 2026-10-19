@@ -1,0 +1,26 @@
+{
+  "name": "kit-dotnet",
+  "displayName": "Kit .NET",
+  "version": "1.0.0",
+  "description": ".NET pack: deterministic solution scanners, .NET contracts, runbook commands, Microsoft Learn and NuGet MCP servers.",
+  "author": { "name": "Kopcsak Patrik" },
+  "repository": "https://github.com/KOPCSAKPATRIK1/dotnet-market-claude",
+  "keywords": ["dotnet", "csharp", "aspnetcore", "efcore", "conventions", "contracts", "mcp"],
+  "dependencies": [
+    "kit-core",
+    { "name": "dotnet", "marketplace": "dotnet-agent-skills" },
+    { "name": "dotnet-data", "marketplace": "dotnet-agent-skills" },
+    { "name": "dotnet-aspnetcore", "marketplace": "dotnet-agent-skills" },
+    { "name": "dotnet-upgrade", "marketplace": "dotnet-agent-skills" }
+  ],
+  "mcpServers": {
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    },
+    "nuget": {
+      "command": "dotnet",
+      "args": ["dnx", "NuGet.Mcp.Server", "--yes"]
+    }
+  }
+}
