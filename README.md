@@ -10,8 +10,8 @@ language server, a Microsoft Learn MCP).
 
 | Plugin | Mit ad |
 | --- | --- |
-| `kit-core` | A hurok (`codecraft`, `code-review`), szerzői skillek (`contract-author`, `convention-creator`), `setup`, `error-classifier`, `repo-sync`, a stack-független core contractok |
-| `kit-dotnet` | Ezt telepíted. Scannerek és a `kit` parancs, .NET contractok, commandok (`/ef-migration`, `/db-scaffold`, `/openapi-export`, `/dotnet-upgrade`, `/package-add`, `/integration-test-setup`), Stop hook, Microsoft Learn és NuGet MCP. Függőségként hozza a `kit-core`-t és a .NET csapat `dotnet`, `dotnet-data`, `dotnet-aspnetcore`, `dotnet-upgrade` pluginját |
+| `kit-core-dotnet` | A hurok (`codecraft`, `code-review`), szerzői skillek (`contract-author`, `convention-creator`), `setup`, `error-classifier`, `repo-sync`, a stack-független core contractok |
+| `kit-dotnet` | Ezt telepíted. Scannerek és a `kit-dotnet` parancs, .NET contractok, commandok (`/ef-migration`, `/db-scaffold`, `/openapi-export`, `/dotnet-upgrade`, `/package-add`, `/integration-test-setup`), Stop hook, Microsoft Learn és NuGet MCP. Függőségként hozza a `kit-core-dotnet`-t és a .NET csapat `dotnet`, `dotnet-data`, `dotnet-aspnetcore`, `dotnet-upgrade` pluginját |
 
 A pontos, mindig friss leltár a [CLAUDE.md](CLAUDE.md) generált részében van.
 
@@ -39,7 +39,7 @@ Claude Code-ban:
 ```
 
 Ellenőrzés: a `/plugin` Errors fülén nincs hiba, a `/mcp` listában ott van a `microsoft-learn` és a
-`nuget`, a `kit status` pedig mindent elérhetőnek mutat.
+`nuget`, a `kit-dotnet status` pedig mindent elérhetőnek mutat.
 
 > A `dotnet/skills` marketplace-t a kit előtt kell hozzáadni, különben a négy `dotnet-*`
 > függőség nem települ, és a kit-dotnet nem tölt be.
@@ -51,10 +51,10 @@ a Microsoft Learn MCP pedig távoli HTTP szerver.
 
 Nyisd meg a projektet a git rootból, és kérd: **„állítsd be a kitet”**. A `setup` skill:
 
-1. lefuttatja a `kit status`-t,
-2. `kit init`: létrehozza a `.claude/decisions/`, `.claude/kit.json` fájlokat, a `.gitattributes`
+1. lefuttatja a `kit-dotnet status`-t,
+2. `kit-dotnet init`: létrehozza a `.claude/decisions/`, `.claude/kit.json` fájlokat, a `.gitattributes`
    és `.gitignore` sorokat, és a CLAUDE.md-be beírja a router importját,
-3. `kit scan`: legenerálja a `.claude/conventions/*.md` fájlokat a solutionből (a scannerekhez nem
+3. `kit-dotnet scan`: legenerálja a `.claude/conventions/*.md` fájlokat a solutionből (a scannerekhez nem
    kell SDK és build, szövegként olvassák a projektfájlokat és a C# forrást),
 4. felajánlja a `convention-creator`-t, ami pár kérdéssel szabállyá teszi a tényeket. Több
    DbContextnél mindig visszakérdezi, melyik projektpár tartozik össze.
@@ -73,11 +73,11 @@ Utána commitold a `.claude/` mappát (a `.claude/.state/` gitignored).
 - Ha valami megint megharapott: „írjunk erre contractot” → `contract-author`.
 
 ```bash
-kit status          # mi van beállítva, mi elavult, mely eszközök érhetők el
-kit stale           # mely conventionök nem egyeznek már a kóddal
-kit scan            # újragenerálás
-kit contract        # contractok listája; kit contract <név> kiírja
-kit evidence style  # a nyers számok egy témához (a convention-creator kérdéseihez)
+kit-dotnet status          # mi van beállítva, mi elavult, mely eszközök érhetők el
+kit-dotnet stale           # mely conventionök nem egyeznek már a kóddal
+kit-dotnet scan            # újragenerálás
+kit-dotnet contract        # contractok listája; kit-dotnet contract <név> kiírja
+kit-dotnet evidence style  # a nyers számok egy témához (a convention-creator kérdéseihez)
 ```
 
 A projekt CI-ába másold be a [templates/project-ci.yml](templates/project-ci.yml)-t: a PR elbukik,
@@ -101,9 +101,9 @@ cache-el, verzióemelés nélkül a felhasználók a régi példányt kapják.
 | Terv / Angular kit | Itt | Miért |
 | --- | --- | --- |
 | `angular-official` wrapper, rögzített upstream commit | Közvetlen függőség a `dotnet-agent-skills` pluginjaira | A .NET csapat eleve Claude Code marketplace-ként adja ki; egy wrapper elvesztené a Roslyn LSP beállítást és az agenteket (1. döntés) |
-| `kit` CLI a kit-core-ban | A `kit` a kit-dotnet-ben marad | Ebben a marketplace-ben egy stack van, így nincs két `bin/kit` a PATH-on; a marketplace CLI már stack-packonként kezeli a core-másolatokat, ha jönne egy második (2. döntés) |
+| `kit-dotnet` CLI a kit-core-ban | A `kit-dotnet` a kit-dotnet-ben marad | Ebben a marketplace-ben egy stack van, így nincs két `bin/kit` a PATH-on; a marketplace CLI már stack-packonként kezeli a core-másolatokat, ha jönne egy második (2. döntés) |
 | `lifetime-matched-injection` a stack-packban | A kit-core-ban, stackenkénti „What to do” résszel | A hibaosztály stack-független (3. döntés) |
-| A kit-core név szerint hivatkozik a hivatalos rétegre | A generált `_router.md` „Tools” és „Failure classes” része adja | Így a kit-core egy második stackkel is változtatás nélkül működik |
+| A kit-core-dotnet név szerint hivatkozik a hivatalos rétegre | A generált `_router.md` „Tools” és „Failure classes” része adja | Így a kit-core-dotnet egy második stackkel is változtatás nélkül működik |
 | Scanner-témák a tervből | Plusz `ui` és `style` téma | Asztali (WinUI/WPF/MAUI) repóknál a view model minták, és minden repónál a megfigyelt kódstílus a leggyakoribb kérdés |
 
 A teendők listája: [TODO.md](TODO.md).

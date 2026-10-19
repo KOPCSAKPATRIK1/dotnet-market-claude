@@ -2,7 +2,7 @@
 name: repo-sync
 description: Maintains the kit marketplace repository itself - derives every generated file (contract copies, registry.lock.json, the generated part of CLAUDE.md) in one pass, then verifies the invariants. Use this after any edit inside the kit marketplace repo (a contract, skill, command or scanner changed), before pushing it, or when its CI verify job fails. Never use it inside an application repository.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: maintenance
 ---
 

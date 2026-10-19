@@ -2,7 +2,7 @@
 name: scan-inventory
 description: Rebuilds the grep-able symbol index (classes, interfaces, records, enums, DbContexts with their DbSets, controllers, minimal API endpoints, each with file:line) used when the Roslyn language server isn't available. Use this when files were created, moved or renamed, when a symbol lookup in .claude/.state/inventory.md returns a wrong path, in cloud sessions where no language server runs, or when the user asks "where is X defined" and the LSP doesn't answer.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: scanner
 ---
 
@@ -14,7 +14,7 @@ offline and in cloud sessions.
 
 ## Steps
 
-1. Regenerate: `kit scan examples` (the cheapest topic; every scan also rewrites the inventory).
+1. Regenerate: `kit-dotnet scan examples` (the cheapest topic; every scan also rewrites the inventory).
 2. Look up a symbol with grep, never by reading the whole file:
    `grep -n "OrderService" .claude/.state/inventory.md`
    Columns: kind, name, project, file:line.

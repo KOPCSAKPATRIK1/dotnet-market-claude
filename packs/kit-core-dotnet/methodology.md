@@ -27,14 +27,14 @@ expensive. Everything else is already covered by the model, the build and code r
    - a provenance comment naming the inputs
    - raw counts go to a gitignored evidence file, for the convention-creator to ask about
 3. **Contracts** specific to the stack, written from incidents (see `logic-over-surface`).
-   A failure class that holds for every stack goes to kit-core instead, with one "What to do"
+   A failure class that holds for every stack goes to kit-core-dotnet instead, with one "What to do"
    paragraph per stack.
 4. **Commands** for sequences an experienced developer could get wrong without noticing. Each has
    When, Steps, Verify, Rollback.
-5. **A `kit` CLI** on the plugin's `bin/` path: `init`, `scan`, `stale`, `status`, `contract`,
+5. **A `kit-dotnet` CLI** on the plugin's `bin/` path: `init`, `scan`, `stale`, `status`, `contract`,
    `evidence`, `codecraft-done`, `hook-stop`. Copy the shape of `packs/kit-dotnet/tools/`.
 6. **A generated router** that names the stack's official layer, its tools and its failure-class
-   rows. kit-core skills read the official layer from the router, never by name.
+   rows. kit-core-dotnet skills read the official layer from the router, never by name.
 7. **A Stop hook** that asks for the codecraft loop when the code diff changed since the last
    check.
 

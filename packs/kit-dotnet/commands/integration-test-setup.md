@@ -26,7 +26,7 @@ from production (InMemory against SQL Server, MySQL or PostgreSQL).
    provider the app builds, with the test connection.
 5. One smoke test that goes through the real stack: an HTTP call to an endpoint, or a service
    call that reads and writes one row.
-6. `kit scan testing` and review the diff.
+6. `kit-dotnet scan testing` and review the diff.
 
 ## Verify
 

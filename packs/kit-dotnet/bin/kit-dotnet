@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// On the Bash tool's PATH while kit-dotnet is enabled, so sessions can run `kit <command>`.
+// On the Bash tool's PATH while kit-dotnet is enabled, so sessions can run `kit-dotnet <command>`.
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
 import(pathToFileURL(path.join(__dirname, '..', 'tools', 'kit.mjs')).href);

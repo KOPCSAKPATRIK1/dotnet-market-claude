@@ -13,7 +13,7 @@ schema changed. Not for code-first repos; use `/ef-migration` there.
 ## Steps
 
 1. Read `.claude/conventions/data.md` for the DbContext, its project, the provider and the folder
-   of the scaffolded entities. Read `kit contract migration-history`.
+   of the scaffolded entities. Read `kit-dotnet contract migration-history`.
 2. Find how the repo scaffolds: a script, a README line, or the provider and options visible in
    the generated context (`partial` classes, `OnModelCreatingPartial`). Ask the user for the
    connection; never write a connection string with a password into a command you commit.
@@ -25,7 +25,7 @@ schema changed. Not for code-first repos; use `/ef-migration` there.
    file or in `OnModelCreatingPartial`; if a generated file had manual edits, move them there
    before re-scaffolding.
 5. Commit the schema script (if the repo keeps one) together with the scaffolded model.
-6. `kit scan data` and review the diff.
+6. `kit-dotnet scan data` and review the diff.
 
 ## Verify
 

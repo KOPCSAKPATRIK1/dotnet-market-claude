@@ -5,7 +5,7 @@
   "description": "Claude Code marketplace: contract + convention kit for .NET projects.",
   "type": "module",
   "bin": {
-    "kit": "packs/kit-dotnet/bin/kit"
+    "kit-dotnet": "packs/kit-dotnet/bin/kit-dotnet"
   },
   "scripts": {
     "sync": "node tools/kit.mjs sync",

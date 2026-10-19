@@ -1,112 +1,112 @@
 {
   "plugins": [
     {
-      "name": "kit-core",
-      "version": "1.0.0",
-      "hash": "2e4ab094a6266b5b"
+      "name": "kit-core-dotnet",
+      "version": "1.1.0",
+      "hash": "e5578f5d4d9fab29"
     },
     {
       "name": "kit-dotnet",
-      "version": "1.0.0",
-      "hash": "6cd09a58b790e3c8"
+      "version": "1.1.0",
+      "hash": "dde91099126578c7"
     }
   ],
   "items": [
     {
       "kind": "contract",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "emit-hygiene",
-      "version": "1.0.0",
-      "path": "packs/kit-core/contracts/emit-hygiene.md",
-      "hash": "6e354b9998276b4b"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/contracts/emit-hygiene.md",
+      "hash": "2567d84b1fef3c51"
     },
     {
       "kind": "contract",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "lifetime-matched-injection",
-      "version": "1.0.0",
-      "path": "packs/kit-core/contracts/lifetime-matched-injection.md",
-      "hash": "b193c570b33b9966"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/contracts/lifetime-matched-injection.md",
+      "hash": "8c2dcf0d17e591a0"
     },
     {
       "kind": "contract",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "logic-over-surface",
-      "version": "1.0.0",
-      "path": "packs/kit-core/contracts/logic-over-surface.md",
-      "hash": "6de6c74987fa636b"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/contracts/logic-over-surface.md",
+      "hash": "bc933721d85c6653"
     },
     {
       "kind": "contract",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "openapi-client-consumption",
-      "version": "1.0.0",
-      "path": "packs/kit-core/contracts/openapi-client-consumption.md",
-      "hash": "6ed2c30e85d2cd1c"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/contracts/openapi-client-consumption.md",
+      "hash": "153183957dc1e74e"
     },
     {
       "kind": "contract",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "self-descriptive-naming",
-      "version": "1.0.0",
-      "path": "packs/kit-core/contracts/self-descriptive-naming.md",
-      "hash": "e5ce53e04fcff5c1"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/contracts/self-descriptive-naming.md",
+      "hash": "c49a0aef4b2ce95f"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "code-review",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/code-review/SKILL.md",
-      "hash": "65483a59f637e5d7"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/code-review/SKILL.md",
+      "hash": "6e5ca3890afd59c2"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "codecraft",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/codecraft/SKILL.md",
-      "hash": "a59c7cd3c9d336de"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/codecraft/SKILL.md",
+      "hash": "c6aaecf984906cd3"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "contract-author",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/contract-author/SKILL.md",
-      "hash": "b38d582e79ac5b65"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/contract-author/SKILL.md",
+      "hash": "25eb2bff489032c4"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "convention-creator",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/convention-creator/SKILL.md",
-      "hash": "ce90e8ad939bebeb"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/convention-creator/SKILL.md",
+      "hash": "104790b1e651387e"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "error-classifier",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/error-classifier/SKILL.md",
-      "hash": "8da0344f907ff181"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/error-classifier/SKILL.md",
+      "hash": "b38a52ad9b95ba3b"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "repo-sync",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/repo-sync/SKILL.md",
-      "hash": "2b58c2165e8e5dcc"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/repo-sync/SKILL.md",
+      "hash": "fe963771e4daffdf"
     },
     {
       "kind": "skill",
-      "pack": "kit-core",
+      "pack": "kit-core-dotnet",
       "name": "setup",
-      "version": "1.0.0",
-      "path": "packs/kit-core/skills/setup/SKILL.md",
-      "hash": "e1227358c5c43562"
+      "version": "1.1.0",
+      "path": "packs/kit-core-dotnet/skills/setup/SKILL.md",
+      "hash": "23def32bc0dc8296"
     },
     {
       "kind": "contract",
@@ -128,9 +128,9 @@
       "kind": "contract",
       "pack": "kit-dotnet",
       "name": "dotnet-tooling",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "packs/kit-dotnet/contracts/dotnet-tooling.md",
-      "hash": "d9b88f095b4f64c4"
+      "hash": "cf4725d31569074f"
     },
     {
       "kind": "contract",
@@ -168,33 +168,33 @@
       "kind": "skill",
       "pack": "kit-dotnet",
       "name": "scan-examples",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "packs/kit-dotnet/skills/scan-examples/SKILL.md",
-      "hash": "5366f795d936a298"
+      "hash": "cd642298ce469c54"
     },
     {
       "kind": "skill",
       "pack": "kit-dotnet",
       "name": "scan-inventory",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "packs/kit-dotnet/skills/scan-inventory/SKILL.md",
-      "hash": "f1dd5cacf4a6be6f"
+      "hash": "b23cf965b037bc4a"
     },
     {
       "kind": "skill",
       "pack": "kit-dotnet",
       "name": "scan-package",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "packs/kit-dotnet/skills/scan-package/SKILL.md",
-      "hash": "c3a5590965bd61e7"
+      "hash": "5c9a8af8de9d3114"
     },
     {
       "kind": "skill",
       "pack": "kit-dotnet",
       "name": "scan-project",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "packs/kit-dotnet/skills/scan-project/SKILL.md",
-      "hash": "d0b322d366a823a8"
+      "hash": "5b40a25dd839ab45"
     },
     {
       "kind": "command",
@@ -202,7 +202,7 @@
       "name": "db-scaffold",
       "version": null,
       "path": "packs/kit-dotnet/commands/db-scaffold.md",
-      "hash": "c8cd528a29b91fff"
+      "hash": "9ae8f391419da850"
     },
     {
       "kind": "command",
@@ -210,7 +210,7 @@
       "name": "dotnet-upgrade",
       "version": null,
       "path": "packs/kit-dotnet/commands/dotnet-upgrade.md",
-      "hash": "83c10c1d3500be7e"
+      "hash": "dc3f3e785a28020e"
     },
     {
       "kind": "command",
@@ -218,7 +218,7 @@
       "name": "ef-migration",
       "version": null,
       "path": "packs/kit-dotnet/commands/ef-migration.md",
-      "hash": "023de6eda6dc4b3b"
+      "hash": "cc8d13d16425d533"
     },
     {
       "kind": "command",
@@ -226,7 +226,7 @@
       "name": "integration-test-setup",
       "version": null,
       "path": "packs/kit-dotnet/commands/integration-test-setup.md",
-      "hash": "acad4c23e6f2e831"
+      "hash": "b758fd9922998af9"
     },
     {
       "kind": "command",
@@ -234,7 +234,7 @@
       "name": "openapi-export",
       "version": null,
       "path": "packs/kit-dotnet/commands/openapi-export.md",
-      "hash": "a101e3803b92ee03"
+      "hash": "3d94e33972363001"
     },
     {
       "kind": "command",
@@ -242,7 +242,7 @@
       "name": "package-add",
       "version": null,
       "path": "packs/kit-dotnet/commands/package-add.md",
-      "hash": "56f67c8eea40affd"
+      "hash": "ed7a9c8a93a702e7"
     }
   ]
 }

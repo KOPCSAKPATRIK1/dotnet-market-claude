@@ -5,14 +5,14 @@
   "allowCrossMarketplaceDependenciesOn": ["dotnet-agent-skills"],
   "plugins": [
     {
-      "name": "kit-core",
-      "source": "./packs/kit-core",
+      "name": "kit-core-dotnet",
+      "source": "./packs/kit-core-dotnet",
       "description": "Stack-independent core: the codecraft/code-review loop, contract and convention authoring, error classification."
     },
     {
       "name": "kit-dotnet",
       "source": "./packs/kit-dotnet",
-      "description": ".NET pack: solution scanners, .NET contracts, runbook commands, Microsoft Learn and NuGet MCP. Installs kit-core and the dotnet, dotnet-data, dotnet-aspnetcore and dotnet-upgrade plugins of the .NET team as dependencies."
+      "description": ".NET pack: solution scanners, .NET contracts, runbook commands, Microsoft Learn and NuGet MCP. Installs kit-core-dotnet and the dotnet, dotnet-data, dotnet-aspnetcore and dotnet-upgrade plugins of the .NET team as dependencies."
     }
   ]
 }

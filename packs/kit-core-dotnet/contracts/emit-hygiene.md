@@ -1,8 +1,8 @@
 ---
 name: emit-hygiene
-version: 1.0.0
+version: 1.1.0
 kind: contract
-pack: kit-core
+pack: kit-core-dotnet
 status: candidate
 incident: none yet
 applies-when: writing any code

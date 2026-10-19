@@ -2,7 +2,7 @@
 name: contract-author
 description: Turns a real incident into a contract - a rule that names a failure class and a diagnostic method, not a specific API or fix. Use this after a bug that "bit us again", after a post-mortem, or when the user says "we should have a rule for this", "make sure this never happens again", "add a contract", or wants to write a team rule. Rejects drafts that only describe the surface, and drafts the official documentation already covers.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: author
 ---
 
@@ -13,7 +13,7 @@ also the easiest thing to get wrong: a rule that names the incident's API works 
 silently stops covering the next instance. Your job is to force the generalisation before the
 rule is written, because nobody generalises a rule later once it sounds right.
 
-Read the meta-rule first: `kit contract logic-over-surface`.
+Read the meta-rule first: `kit-dotnet contract logic-over-surface`.
 
 ## 1. Ask four questions, one at a time
 
@@ -39,8 +39,8 @@ Reject (and say why) when:
 ## 3. Write the draft
 
 Contracts live in the marketplace repository, not in projects. In the marketplace repo run
-`npm run new -- contract <name> --pack <kit-core|stack pack>` and fill the skeleton. A failure
-class that holds for every stack goes to kit-core. From a project, write the draft into the chat
+`npm run new -- contract <name> --pack <kit-core-dotnet|stack pack>` and fill the skeleton. A failure
+class that holds for every stack goes to kit-core-dotnet. From a project, write the draft into the chat
 and tell the user where it goes.
 
 Frontmatter: `name`, `version: 1.0.0`, `kind: contract`, `pack`, `status: confirmed`,

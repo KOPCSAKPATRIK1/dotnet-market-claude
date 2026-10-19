@@ -1,4 +1,4 @@
-// Small, dependency-free helpers shared by the project-side `kit` commands.
+// Small, dependency-free helpers shared by the project-side `kit-dotnet` commands.
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -22,10 +22,62 @@ export function git(args, cwd) {
   }
 }
 
-/** The git root, or the starting folder when it isn't inside a repository. */
-export function projectRoot(start) {
-  const top = git(['rev-parse', '--show-toplevel'], start);
-  return top ? path.resolve(top.trim()) : path.resolve(start);
+export const STACK = 'dotnet';
+
+/** True when `dir/.claude/kit.json` is this kit's. */
+export function isDotnetKitRoot(dir) {
+  return readJsonc(path.join(dir, '.claude', 'kit.json'))?.stack === STACK;
+}
+
+/**
+ * The folder whose .claude/ this kit owns. In a repository that also holds another stack (for
+ * example an Angular app with its own kit), the git root's .claude/ is not ours, so the kit looks
+ * for its own `.claude/kit.json` ("stack": "dotnet"):
+ *   1. `explicit` (--root), as given;
+ *   2. the nearest such folder from `start` up to the git root;
+ *   3. the only such folder up to three levels below the git root (a session opened at the root);
+ *   4. the git root, or `start` outside a repository.
+ */
+export function projectRoot(start, explicit) {
+  if (explicit) {
+    return path.resolve(explicit);
+  }
+  const from = path.resolve(start);
+  const top = git(['rev-parse', '--show-toplevel'], from);
+  const gitRoot = top ? path.resolve(top.trim()) : from;
+  for (let dir = from; ; dir = path.dirname(dir)) {
+    if (isDotnetKitRoot(dir)) return dir;
+    if (dir === gitRoot || path.dirname(dir) === dir) break;
+  }
+  let level = [gitRoot];
+  const found = [];
+  for (let depth = 1; depth <= 3 && level.length; depth++) {
+    const next = [];
+    for (const dir of level) {
+      for (const entry of safeReaddir(dir)) {
+        if (entry.isDirectory() && !SKIPPED_DIRS.has(entry.name) && !entry.name.startsWith('.')) {
+          next.push(path.join(dir, entry.name));
+        }
+      }
+    }
+    found.push(...next.filter(isDotnetKitRoot));
+    level = next;
+  }
+  return found.length === 1 ? found[0] : gitRoot;
+}
+
+/**
+ * Why this kit must not write into `root/.claude/`, or null when it may: the folder has a kit.json
+ * of another stack. A kit.json without "stack" is an older kit-dotnet one unless its generated
+ * router names no .NET tooling.
+ */
+export function foreignKitReason(root) {
+  const config = readJsonc(path.join(root, '.claude', 'kit.json'));
+  if (!config || config.stack === STACK) return null;
+  if (config.stack) return `.claude/kit.json belongs to the "${config.stack}" kit-dotnet`;
+  const router = readText(path.join(root, '.claude', 'conventions', '_router.md'));
+  if (router && !/dotnet/i.test(router)) return '.claude/ holds the generated conventions of another kit';
+  return null;
 }
 
 /**

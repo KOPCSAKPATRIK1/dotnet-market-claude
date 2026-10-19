@@ -2,7 +2,7 @@
 name: code-review
 description: Reviews a diff, branch or pull request against the team's contracts, decisions and repo conventions, using the language server to find every caller the change affects. Use this before declaring a feature done, when the user asks for a review of their changes, a branch or a PR, or asks "is this ready to merge", "anything wrong with this", or "check my changes". Findings point to contracts and conventions rather than personal taste.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: verify
 ---
 
@@ -16,7 +16,7 @@ elsewhere. Personal style preferences aren't findings.
 1. **Scope.** Get the diff: the working tree, `git diff <base>...HEAD` for a branch, or the PR's
    diff. Summarise in two lines what the change is for.
 2. **Rules.** Read the conventions, decisions and contracts that apply (see the router in
-   `.claude/conventions/_router.md`; contracts via `kit contract <name>`).
+   `.claude/conventions/_router.md`; contracts via `kit-dotnet contract <name>`).
 3. **Blast radius.** For every changed public symbol, ask the language server for references
    and the call hierarchy. Without it, grep `.claude/.state/inventory.md` and the source. A changed
    signature, DTO, entity or model field with an unchanged caller is a finding.
