@@ -1,6 +1,6 @@
 ---
 name: dotnet-tooling
-version: 1.0.0
+version: 1.1.0
 kind: contract
 pack: kit-dotnet
 status: candidate
@@ -21,7 +21,7 @@ memory and looks identical to a normal run, so nobody knows the checks didn't ha
 ## How to diagnose
 
 At the first framework question, symbol lookup, build or migration, notice which tool actually
-answered. `kit status` lists every tool and its fallback.
+answered. `kit-dotnet status` lists every tool and its fallback.
 
 ## What to do
 

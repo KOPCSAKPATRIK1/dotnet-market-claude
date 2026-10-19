@@ -2,7 +2,7 @@
 name: codecraft
 description: The end-of-task check loop for code changes - looks up every convention, decision and contract the diff touches, runs the build and tests, checks the diff against each rule, fixes what it can, and reports what it applied, what it skipped and what it could not check. Use this at the end of every coding task before saying the work is done, whenever the kit's Stop hook asks for it, and whenever the user asks to "check against the conventions", "make sure this follows our rules", or "verify the change". Contains no framework knowledge; framework questions go to the official layer named in the router.
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: verify
 ---
 
@@ -25,7 +25,7 @@ services and registrations, view models, tests, configuration).
   file covers each area. Read those files.
 - Read `.claude/decisions/conventions.md` and `.claude/decisions/traps.md`. Decisions win over
   generated conventions.
-- For each contract whose "applies when" matches the diff, read it with `kit contract <name>`.
+- For each contract whose "applies when" matches the diff, read it with `kit-dotnet contract <name>`.
   Always include `emit-hygiene` and `self-descriptive-naming`.
 - If `.claude/conventions/` doesn't exist, say so once, check against the official layer only, and
   suggest the `setup` skill.
@@ -60,5 +60,5 @@ Fallbacks:      tool that didn't answer → what was used instead
 Build/tests:    command → result
 ```
 
-Then run `kit codecraft-done` so the Stop hook knows this diff was checked. If you change code
+Then run `kit-dotnet codecraft-done` so the Stop hook knows this diff was checked. If you change code
 after that, run the loop again for the new part.

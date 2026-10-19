@@ -163,7 +163,7 @@ const workspace = {
       notes.push(`${windowsOnly.join(', ')} ${windowsOnly.length === 1 ? 'builds' : 'build'} only on Windows. Elsewhere build the other projects one by one${portable.length ? ` (${portable.join(', ')})` : ''} and list the rest as not checkable.`);
     }
     if (nonTest.some((p) => p.props.Nullable !== 'enable')) {
-      notes.push('Nullable reference types are off in some projects: the compiler does not check null flow there. See `kit contract nullability-across-layers`.');
+      notes.push('Nullable reference types are off in some projects: the compiler does not check null flow there. See `kit-dotnet contract nullability-across-layers`.');
     }
     return { facts, notes, evidence };
   },
@@ -204,7 +204,7 @@ const architecture = {
     });
     facts.push(['namespace starts with the project root namespace', ratio('namespaceInRoot', withNamespace.filter((f) => !outside.includes(f)), withNamespace.length, evidence, outside)]);
     if (outside.length) {
-      notes.push(`Some files declare a namespace outside their project's root namespace (${list(outside.map((f) => namespaceOf(ctx.read(f))))}); see \`kit evidence architecture\`.`);
+      notes.push(`Some files declare a namespace outside their project's root namespace (${list(outside.map((f) => namespaceOf(ctx.read(f))))}); see \`kit-dotnet evidence architecture\`.`);
     }
     const mirrors = (f) => {
       const p = ctx.projectOf(f);
@@ -296,7 +296,7 @@ const data = {
     const commitsIn = [...new Set(ctx.filesMatching(/SaveChanges(Async)?\s*\(/).map((f) => (repositories.includes(f) ? 'repositories' : contextFiles.has(f) ? 'DbContext' : 'services and other callers')))].sort();
     facts.push(['SaveChanges called in', list(commitsIn)]);
     if (commitsIn.includes('repositories')) {
-      notes.push('Repositories call SaveChanges themselves, so one service operation can commit several times. See `kit contract commit-side-effect-order`.');
+      notes.push('Repositories call SaveChanges themselves, so one service operation can commit several times. See `kit-dotnet contract commit-side-effect-order`.');
     }
 
     const timeTypes = new Set();
@@ -309,7 +309,7 @@ const data = {
     }
     facts.push(['time types in entities', list([...timeTypes])]);
     facts.push(['dates stored as text', list(textDates)]);
-    if (textDates.length) notes.push('Some dates are stored as strings; they sort and compare as text. See `kit contract time-kind`.');
+    if (textDates.length) notes.push('Some dates are stored as strings; they sort and compare as text. See `kit-dotnet contract time-kind`.');
 
     const literal = ctx.filesMatching(/"[^"\n]*\b(server|Server|Data Source|Host|host)\s*=[^"\n]*;[^"\n]*"/);
     facts.push(['connection string', literal.length ? 'literal in code' : ctx.filesMatching(/GetConnectionString\s*\(/).length ? 'from configuration (GetConnectionString)' : 'not found']);
@@ -351,7 +351,7 @@ const api = {
       ctx.hasPrefix('Refit') && 'Refit', ctx.filesMatching(/WebView2|CoreWebView2/, ctx.csFiles).length && 'embedded WebView2',
     ].filter(Boolean))]);
     if (!web.length) notes.push('No ASP.NET Core project: this solution publishes no HTTP API.');
-    if (web.length && !generators.length) notes.push('Web project without an OpenAPI generator: clients have no published contract. See `kit contract api-spec-fidelity`.');
+    if (web.length && !generators.length) notes.push('Web project without an OpenAPI generator: clients have no published contract. See `kit-dotnet contract api-spec-fidelity`.');
     return { facts, notes, evidence: {} };
   },
 };
@@ -396,7 +396,7 @@ const di = {
     for (const r of registrations) (lifetimesByBase[baseName(r.service)] ??= new Set()).add(r.lifetime);
     const conflicting = Object.entries(lifetimesByBase).filter(([, set]) => set.size > 1).map(([name, set]) => `${name} (${[...set].sort().join(', ')})`);
     facts.push(['services registered with more than one lifetime', list(conflicting)]);
-    if (conflicting.length) notes.push(`${conflicting.join('; ')}: the last registration wins per closed type, the open generic for the rest. See \`kit contract lifetime-matched-injection\`.`);
+    if (conflicting.length) notes.push(`${conflicting.join('; ')}: the last registration wins per closed type, the open generic for the rest. See \`kit-dotnet contract lifetime-matched-injection\`.`);
 
     const locator = ctx.filesMatching(/\.Services\.Get(Required)?Service\s*[<(]|\bGetService<\w+>\s*\(\)|App\.GetService\s*</);
     facts.push(['service locator (resolving from the container in code)', present(locator.length > 0)]);
@@ -405,7 +405,7 @@ const di = {
     facts.push(['explicit scopes (CreateScope)', present(scopes.length > 0)]);
     const isWebHost = hosts.includes('WebApplication.CreateBuilder');
     if (!isWebHost && locator.length && !scopes.length && (byLifetime('scoped') || dbRegistered)) {
-      notes.push('Scoped services (and the DbContext) are resolved from the root provider with no scope: they live as long as the process. See `kit contract lifetime-matched-injection`.');
+      notes.push('Scoped services (and the DbContext) are resolved from the root provider with no scope: they live as long as the process. See `kit-dotnet contract lifetime-matched-injection`.');
     }
     facts.push(['options pattern', present(ctx.filesMatching(/\.Configure<|AddOptions<|IOptions</).length > 0)]);
     facts.push(['keyed services', present(ctx.filesMatching(/AddKeyed(Singleton|Scoped|Transient)/).length > 0)]);
@@ -569,7 +569,7 @@ const style = {
     facts.push(['null! initializers', present(ctx.filesMatching(/=\s*null!/).length > 0)]);
     facts.push(['records', present(files.some((f) => typeDeclarations(read(f)).some((d) => d.kind.startsWith('record'))))]);
     facts.push(['UTF-8 BOM', measure(evidence, 'bom', files, (f) => ctx.hasBom(f))]);
-    if (nullableDirectives.length || pragmas.length) notes.push('Some files change nullable context or silence warnings locally; see `kit evidence style` for which.');
+    if (nullableDirectives.length || pragmas.length) notes.push('Some files change nullable context or silence warnings locally; see `kit-dotnet evidence style` for which.');
     return { facts, notes, evidence };
   },
 };

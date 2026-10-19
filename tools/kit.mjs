@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS = path.join(ROOT, 'packs');
-const CORE_CONTRACTS = path.join(PACKS, 'kit-core', 'contracts');
+const CORE_CONTRACTS = path.join(PACKS, 'kit-core-dotnet', 'contracts');
 const LOCK = path.join(ROOT, 'registry.lock.json');
 const CLAUDE_MD = path.join(ROOT, 'CLAUDE.md');
 const MARKETPLACE = path.join(ROOT, '.claude-plugin', 'marketplace.json');
@@ -109,7 +109,7 @@ function packs() {
   return fs.readdirSync(PACKS).filter((p) => fs.existsSync(path.join(PACKS, p, '.claude-plugin', 'plugin.json'))).sort();
 }
 
-/** A stack pack ships the project-side `kit` CLI; it gets a copy of the core contracts. */
+/** A stack pack ships the project-side `kit-dotnet` CLI; it gets a copy of the core contracts. */
 function stackPacks() {
   return packs().filter((p) => fs.existsSync(path.join(PACKS, p, 'tools', 'kit.mjs')));
 }
@@ -279,7 +279,7 @@ function verify() {
 
   // I3 – every contract copy equals its source.
   for (const [file, content] of Object.entries(files)) {
-    if (isCoreCopy(file) && read(file) !== content) fail('I3', `${rel(file)} differs from packs/kit-core/contracts/${path.basename(file)}`);
+    if (isCoreCopy(file) && read(file) !== content) fail('I3', `${rel(file)} differs from packs/kit-core-dotnet/contracts/${path.basename(file)}`);
   }
 
   // I4 – closed world: every referenced contract, skill and command exists.
@@ -287,7 +287,7 @@ function verify() {
   const skills = new Set(items.filter((i) => i.kind === 'skill').map((i) => i.name));
   const commands = new Set(items.filter((i) => i.kind === 'command').map((i) => i.name));
   const allExternal = new Set(Object.values(EXTERNAL_SKILLS).flat());
-  const external = (pack) => (pack === 'kit-core' ? allExternal : new Set(EXTERNAL_SKILLS[pack] ?? []));
+  const external = (pack) => (pack === 'kit-core-dotnet' ? allExternal : new Set(EXTERNAL_SKILLS[pack] ?? []));
   const toolFiles = stackPacks().flatMap((p) => list(path.join(PACKS, p, 'tools'), (f) => f.endsWith('.mjs')).map((f) => ({ pack: p, path: rel(f), text: read(f) })));
   for (const item of [...items, ...toolFiles]) {
     for (const m of item.text.matchAll(/kit contract ([a-z0-9-]+)/g)) {
@@ -305,7 +305,7 @@ function verify() {
   const handWritten = [
     ['README.md', read(path.join(ROOT, 'README.md')) ?? ''],
     ['CLAUDE.md (hand-written part)', (read(CLAUDE_MD) ?? '').split(GEN_START)[0]],
-    ['packs/kit-core/methodology.md', read(path.join(PACKS, 'kit-core', 'methodology.md')) ?? ''],
+    ['packs/kit-core-dotnet/methodology.md', read(path.join(PACKS, 'kit-core-dotnet', 'methodology.md')) ?? ''],
   ];
   for (const [name, text] of handWritten) {
     const m = /\b\d+\s+(skills?|contracts?|commands?|plugins?|scanners?)\b/i.exec(text);
@@ -367,7 +367,7 @@ function verify() {
 
 function create() {
   const [kind, name] = args.slice(1);
-  const pack = option('--pack') ?? (kind === 'command' ? stackPacks()[0] : 'kit-core');
+  const pack = option('--pack') ?? (kind === 'command' ? stackPacks()[0] : 'kit-core-dotnet');
   if (!['contract', 'skill', 'command'].includes(kind) || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(name ?? '')) {
     console.error(`usage: new <contract|skill|command> <kebab-name> [--pack ${packs().join('|')}]`);
     process.exit(2);

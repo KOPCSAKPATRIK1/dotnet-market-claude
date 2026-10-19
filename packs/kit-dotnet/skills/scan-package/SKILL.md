@@ -1,8 +1,8 @@
 ---
 name: scan-package
-description: Records which API of an internal NuGet package (shared library, design system, company SDK, or a project reference to a local clone) this solution actually uses, pinned to the referenced version, and detects when the version moved past the scanned one. Use this when an internal package is added or upgraded, when `kit stale` reports a package as stale, before using an unfamiliar internal library, or when the user asks "what do we use from Acme.Common" or "is our knowledge of this package current".
+description: Records which API of an internal NuGet package (shared library, design system, company SDK, or a project reference to a local clone) this solution actually uses, pinned to the referenced version, and detects when the version moved past the scanned one. Use this when an internal package is added or upgraded, when `kit-dotnet stale` reports a package as stale, before using an unfamiliar internal library, or when the user asks "what do we use from Acme.Common" or "is our knowledge of this package current".
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: scanner
 ---
 
@@ -15,12 +15,12 @@ becomes fiction, and a stale convention is worse than a missing one because the 
 
 1. Add the package id to `.claude/kit.json` → `"packages": [...]` (internal packages only;
    public framework packages are covered by the official layer).
-2. `kit scan packages` writes `.claude/conventions/packages/<id>.md` with:
+2. `kit-dotnet scan packages` writes `.claude/conventions/packages/<id>.md` with:
    `pinned` (the PackageReference or the CPM PackageVersion), `resolved` (packages.lock.json when
    the repo has one, else the pinned version), `scanned`, `source` (nuget or project-reference),
    the namespaces this solution imports from it, and the public types from the package's XML
    documentation file in the local NuGet cache.
-3. `kit stale` compares `scanned` with `resolved`:
+3. `kit-dotnet stale` compares `scanned` with `resolved`:
 
 | Situation | Action |
 | --- | --- |

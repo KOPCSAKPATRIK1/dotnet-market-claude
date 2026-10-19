@@ -23,8 +23,8 @@ version; use `/dotnet-upgrade` for that.
      `<PackageReference>` in the project (`dotnet add <project> package <id>` does both).
    - CPM off: `dotnet add <project> package <id> --version <version>`.
 4. If the package is internal (your organisation's), add its id to `.claude/kit.json` →
-   `"packages"` and run `kit scan packages`.
-5. `kit scan workspace` and review the diff.
+   `"packages"` and run `kit-dotnet scan packages`.
+5. `kit-dotnet scan workspace` and review the diff.
 
 ## Verify
 

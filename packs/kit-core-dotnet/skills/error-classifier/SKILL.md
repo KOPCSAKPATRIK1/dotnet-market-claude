@@ -2,7 +2,7 @@
 name: error-classifier
 description: Classifies a failure - build error, test failure, runtime exception, stack trace, failing migration, wrong data on screen, failing dev server - into a failure class and routes it to the matching contract, convention or command before any fix is attempted. Use this whenever something fails and the cause isn't obvious, when the user pastes an error or stack trace, or says "it's broken", "the build fails", "this test is red", "the data is wrong", or "nothing updates".
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: router
 ---
 
@@ -33,7 +33,7 @@ the generic classes:
 | Tooling / environment | MCP or LSP not starting, missing SDK or tool | `setup` skill |
 | Test setup | test fails before reaching the code under test | testing.md |
 
-Read the routed contract with `kit contract <name>`.
+Read the routed contract with `kit-dotnet contract <name>`.
 
 ## 3. Report
 

@@ -1,8 +1,8 @@
 ---
 name: convention-creator
-description: Turns raw scan results into confirmed repo rules by asking the user about ambiguous evidence instead of treating the majority as the rule. Use this after the first `kit scan`, after a rescan that changed facts, when conventions look contradictory (mixed registration styles, mixed entity configuration, some services bypassing the repository layer), or when the user asks "what are our conventions", "write down how we do things here", or "is this drift or intended".
+description: Turns raw scan results into confirmed repo rules by asking the user about ambiguous evidence instead of treating the majority as the rule. Use this after the first `kit-dotnet scan`, after a rescan that changed facts, when conventions look contradictory (mixed registration styles, mixed entity configuration, some services bypassing the repository layer), or when the user asks "what are our conventions", "write down how we do things here", or "is this drift or intended".
 metadata:
-  version: 1.0.0
+  version: 1.1.0
   kind: author
 ---
 
@@ -14,8 +14,8 @@ skill is the step between the scan and the rule.
 
 ## 1. Observe
 
-Read `.claude/conventions/*.md` and the raw counts with `kit evidence` (or
-`kit evidence <topic>`). The evidence lists the files behind each minority.
+Read `.claude/conventions/*.md` and the raw counts with `kit-dotnet evidence` (or
+`kit-dotnet evidence <topic>`). The evidence lists the files behind each minority.
 
 ## 2. Classify by evidence
 

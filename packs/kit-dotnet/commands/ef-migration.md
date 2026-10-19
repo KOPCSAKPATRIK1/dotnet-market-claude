@@ -14,7 +14,7 @@ database-first repo: data.md says which one this is; for database-first use `/db
 
 1. Read `.claude/conventions/data.md`: the DbContext, its project, the startup project and the
    migrations folder. With more than one DbContext, ask which one changed; don't guess.
-2. Read `kit contract migration-history`.
+2. Read `kit-dotnet contract migration-history`.
 3. Check `dotnet ef --version` has the same major as the EF Core packages in data.md. If not,
    stop and give the install command (`dotnet tool update --global dotnet-ef --version <major>.*`).
 4. Run `dotnet ef migrations add $ARGUMENTS --project <data project> --startup-project <startup project> --context <DbContext>`
@@ -25,7 +25,7 @@ database-first repo: data.md says which one this is; for database-first use `/db
 6. If the model has seed data (`HasData`), make sure no value is non-deterministic
    (`DateTime.Now`, `Guid.NewGuid()`), or every run will generate a new migration.
 7. `dotnet ef migrations has-pending-model-changes` (EF Core 8+) with the same arguments.
-8. `kit scan data` and review the diff.
+8. `kit-dotnet scan data` and review the diff.
 
 ## Verify
 

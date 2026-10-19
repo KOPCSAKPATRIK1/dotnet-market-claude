@@ -8,7 +8,7 @@
 - ✅ Invariánsok I1–I6 a `verify`-ban (I6 a manifesteket is nézi: listázott plugin, feloldható függőség), I7 a CI-ban
 - ✅ Hivatalos réteg közvetlen függőségként: `dotnet`, `dotnet-data`, `dotnet-aspnetcore`, `dotnet-upgrade` a `dotnet-agent-skills` marketplace-ből, `allowCrossMarketplaceDependenciesOn`
 - ✅ MCP: Microsoft Learn (távoli HTTP), NuGet (`dotnet dnx NuGet.Mcp.Server`, a csomag a nuget.org-on ellenőrizve)
-- ✅ kit-core leválasztva az Angularról: a skillek a generált router „Tools” és „Failure classes” részéből olvassák a hivatalos réteget
+- ✅ kit-core-dotnet leválasztva az Angularról: a skillek a generált router „Tools” és „Failure classes” részéből olvassák a hivatalos réteget
 - ✅ `lifetime-matched-injection` a kit-core-ban, stackenkénti „What to do” résszel
 - ✅ .NET scannerek: workspace, architecture, data, api, di, ui, validation, mapping, style, testing, lint, examples; inventory és belső NuGet-csomagok
 - ✅ A jelölt contractok: `api-spec-fidelity`, `nullability-across-layers`, `migration-history`, `commit-side-effect-order`, `time-kind`, `lost-update`, `dotnet-tooling`

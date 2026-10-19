@@ -27,12 +27,12 @@ Moving the solution to the next .NET major (one major at a time). Not for patch 
    (NuGet MCP) before moving them.
 6. Build, fix the breaking changes the skill or the docs list, run the tests. With EF Core, check
    for pending model changes (`dotnet ef migrations has-pending-model-changes`).
-7. `kit scan` and review `git diff .claude/conventions/`.
+7. `kit-dotnet scan` and review `git diff .claude/conventions/`.
 
 ## Verify
 
 - Build and tests pass with the commands from workspace.md.
-- `kit stale` reports nothing.
+- `kit-dotnet stale` reports nothing.
 - Every manual item is either done or recorded in `.claude/decisions/adr/` with the reason it's
   deferred.
 
